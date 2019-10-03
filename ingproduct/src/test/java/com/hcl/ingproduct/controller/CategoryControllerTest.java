@@ -1,6 +1,5 @@
 package com.hcl.ingproduct.controller;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -15,8 +14,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
-
 import com.hcl.ingproduct.controller.CategoryController;
+import com.hcl.ingproduct.dto.CategoryResponseDto;
 import com.hcl.ingproduct.dto.ProductResponseDto;
 import com.hcl.ingproduct.entity.Category;
 import com.hcl.ingproduct.entity.Product;
@@ -52,5 +51,16 @@ public class CategoryControllerTest {
 		ResponseEntity<ProductResponseDto> productResponse=categoryController.getAllProducts(1);
 		assertNotNull(productResponse);
 		assertEquals(200, productResponse.getStatusCode().value());
+	}
+	
+	@Test
+	public void testGetCategoryList() {
+		List<Category> categoryList=new ArrayList<>();
+		categoryList.add(category);
+		Mockito.when(categoryServiceImpl.getAllProductCategory()).thenReturn(categoryList);
+		ResponseEntity<CategoryResponseDto> categoryResponse=categoryController.getCategoryList();
+		assertNotNull(categoryResponse);
+		assertEquals(200, categoryResponse.getStatusCode().value());
+		
 	}
 }
