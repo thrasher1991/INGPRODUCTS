@@ -1,8 +1,9 @@
 package com.hcl.ingproduct.repository;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class ProductRepository {
+import com.hcl.ingproduct.entity.Product;
+
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 }
