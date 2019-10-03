@@ -3,11 +3,6 @@ package com.hcl.ingproduct.dto;
 import java.util.List;
 
 import com.hcl.ingproduct.entity.Category;
-
-import lombok.Getter;
-import lombok.Setter;
-@Getter
-@Setter
 public class CategoryResponseDto {
 	private int statusCode;
 	private String message;

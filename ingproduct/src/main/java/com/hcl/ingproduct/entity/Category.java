@@ -16,10 +16,10 @@ import lombok.Setter;
 @Setter
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="category_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int categoryId; 
 	@Column(name="category_name")
-	private int categoryName;
+	private String categoryName;
 
 }

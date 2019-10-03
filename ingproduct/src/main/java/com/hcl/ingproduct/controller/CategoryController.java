@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.hcl.ingproduct.dto.CategoryResponseDto;
 import com.hcl.ingproduct.entity.Category;
 import com.hcl.ingproduct.service.CategoryService;
@@ -28,12 +30,13 @@ public class CategoryController {
            */
 	
 	@GetMapping("/category")
-	public void getCategoryList() {
+	public ResponseEntity<CategoryResponseDto> getCategoryList() {
 		CategoryResponseDto categoryResponse=new CategoryResponseDto();
 		List<Category> categoryList=categoryService.getAllProductCategory();
 		categoryResponse.setCategoryList(categoryList);
 		categoryResponse.setMessage("List of Category");
 		categoryResponse.setStatusCode(HttpStatus.OK.value());
+		return new ResponseEntity<>(categoryResponse,HttpStatus.OK);
 	}
 	
 }
