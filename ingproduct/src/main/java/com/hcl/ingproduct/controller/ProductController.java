@@ -27,7 +27,7 @@ public class ProductController {
     *
     */
 	
-	@GetMapping("/prodcuts/{productId}")
+	@GetMapping("/products/{productId}")
 	public ResponseEntity<ProductDetailsResponseDto> getProductDetails(@PathVariable int productId) {
 		ProductDetailsResponseDto productInfo=new ProductDetailsResponseDto();
 		Product productDetails = productService.getProductDetails(productId);
