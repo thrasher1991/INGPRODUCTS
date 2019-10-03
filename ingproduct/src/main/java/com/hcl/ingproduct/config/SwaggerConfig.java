@@ -1,4 +1,4 @@
-package com.hcl.ingproduct.config;
+	package com.hcl.ingproduct.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
