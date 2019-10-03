@@ -29,6 +29,12 @@ public class CategoryServiceTest {
 		category.setCategoryName("Mortgage");
 	}
 	
+	/**
+	 * @author Subashri Sridharan
+	 *
+	 */
+
+	
 	@Test
 	public void testGetAllCategory() {
 		List<Category> categoryList=new ArrayList<>();

@@ -28,11 +28,16 @@ public class CategoryControllerTest {
 	CategoryController categoryController;
 	Category category=new Category();
 	@Before
-	public void initiateDate() {
+	public void initiateData() {
 		category.setCategoryId(1);
 		category.setCategoryName("Mortgage");
 	}
 	
+	/**
+	 * @author Subashri Sridharan
+	 *
+	 */
+
 	@Test
 	public void testGetCategoryList() {
 		List<Category> categoryList=new ArrayList<>();
