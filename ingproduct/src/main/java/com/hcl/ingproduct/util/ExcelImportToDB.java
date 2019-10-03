@@ -79,12 +79,19 @@ public class ExcelImportToDB {
 				}else {
 					categoryProduct3=categoryProduct1.get();
 				}
-
+				
 				product.setCategoryId(categoryProduct3.getCategoryId());
-				product.setProductDescription(productDescription);
-				product.setProductName(productName);
-
-				productRepository.save(product);
+				Optional<Product> product1=productRepository.findByProductNameAndProductDescription(productName, productDescription);
+				Product product2;
+				if(!product1.isPresent()) {
+					product.setProductDescription(productDescription);
+					product.setProductName(productName);
+                    product2=productRepository.save(product);
+				}else {
+					product2=product1.get();
+					product.setProductDescription(product2.getProductDescription());
+					product.setProductName(product2.getProductName());
+				}
 
 				response.setMessage("success");
 				response.setStatusCode(200);
